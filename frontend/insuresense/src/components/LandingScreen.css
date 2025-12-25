@@ -1,0 +1,211 @@
+.landing-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.landing-screen.slide-up {
+  transform: translateY(-100vh);
+}
+
+.landing-content {
+  max-width: 1400px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.logo-container {
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.logo-icon {
+  margin-bottom: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.brand-name {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.brand-tagline {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  animation-delay: 0.3s;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.option-card {
+  background: var(--bg-medium);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: left;
+  transition: var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 160px;
+  position: relative;
+}
+
+.option-card:hover {
+  background: var(--white);
+  border-color: var(--white);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.option-card:hover .option-title {
+  color: var(--bg-dark);
+}
+
+.option-card:hover .option-description {
+  color: var(--bg-medium);
+}
+
+.option-card:hover .option-icon svg {
+  color: var(--accent-red);
+}
+
+.option-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  color: var(--accent-red);
+  transition: var(--transition);
+}
+
+.option-icon svg {
+  width: 32px;
+  height: 32px;
+  transition: var(--transition);
+}
+
+.option-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: var(--transition);
+  margin-bottom: 4px;
+}
+
+.option-description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+@media (max-width: 1200px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-screen {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .landing-content {
+    gap: 30px;
+  }
+
+  .brand-name {
+    font-size: 32px;
+  }
+
+  .brand-tagline {
+    font-size: 14px;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .option-card {
+    padding: 24px 20px;
+    min-height: 140px;
+  }
+
+  .option-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .option-title {
+    font-size: 17px;
+  }
+
+  .option-description {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-height: 800px) {
+  .landing-content {
+    gap: 30px;
+  }
+
+  .logo-container {
+    margin-bottom: 0;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+  }
+
+  .brand-name {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .brand-tagline {
+    font-size: 15px;
+  }
+
+  .option-card {
+    padding: 22px 20px;
+    min-height: 140px;
+  }
+
+  .option-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .option-title {
+    font-size: 17px;
+  }
+
+  .option-description {
+    font-size: 12px;
+  }
+}
