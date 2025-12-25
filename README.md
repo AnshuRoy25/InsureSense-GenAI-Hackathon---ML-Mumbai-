@@ -21,6 +21,7 @@ insuresense/
 ├── backend/            # Node.js + Express API server
 ├── microservice/       # Python Flask + Google ADK (summarization)
 └── micronews/         # Python Flask + Google ADK (news fetching)
+└── datapoints/         # Data of the company with whom we are signed (Insurance policy  data)
 ```
 
 ### Tech Stack
