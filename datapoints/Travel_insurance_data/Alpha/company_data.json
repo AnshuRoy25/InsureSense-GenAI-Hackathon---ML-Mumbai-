@@ -1,0 +1,264 @@
+{
+  "company": "Company Alpha",
+  "product": "Alpha Basic Travel Insurance",
+  "currency": "INR",
+  "plans": [
+    {
+      "planId": "ALPHA-BASIC-1Y",
+      "name": "Alpha Basic 1-Year",
+      "description": "Single-trip and short multi-trip cover with core medical, accident, baggage and trip protection.",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 30
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 60,
+        "geography": ["India", "Worldwide-Excl-USA"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "zone_and_duration",
+        "zones": [
+          { "zoneCode": "IN", "name": "Domestic India" },
+          { "zoneCode": "WWXUS", "name": "Worldwide excluding USA/Canada" }
+        ]
+      },
+      "sumInsuredOptions": [
+        { "code": "LOW", "amount": 500000 },
+        { "code": "MID", "amount": 1000000 },
+        { "code": "HIGH", "amount": 2000000 }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured", 
+          "subLimits": {
+            "outpatientMax": 50000,
+            "emergencyDentalMax": 15000
+          },
+          "deductible": 500,
+          "includesEvacuation": true,
+          "includesRepatriation": true,
+          "preExistingCoverage": {
+            "type": "emergency_stabilization_only",
+            "waitingPeriodDays": 0
+          }
+        },
+        "personalAccident": {
+          "enabled": true,
+          "sumInsured": 1000000,
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365,
+          "commonCarrierAdditionalMultiplier": 1.5
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMax": 50000,
+          "delayMax": 10000,
+          "delayMinHours": 6,
+          "perItemLimit": 10000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimit": 20000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimit": 50000,
+          "coveredReasons": [
+            "insured_illness_or_injury",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination",
+            "airline_or_carrier_strike"
+          ],
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefit": 2000,
+          "maxLimit": 10000,
+          "minDelayHours": 6
+        },
+        "missedConnection": {
+          "enabled": true,
+          "maxLimit": 15000,
+          "minDelayHours": 3
+        },
+        "personalLiability": {
+          "enabled": true,
+          "maxLimit": 1000000,
+          "includesPropertyDamage": true,
+          "includesBodilyInjury": true
+        }
+      },
+      "exclusions": [
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "participation_in_professional_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_before_trip_and_within_free_look",
+            "refundPercent": 100
+          },
+          {
+            "condition": "policy_cancelled_before_trip_after_free_look",
+            "refundPercent": 70
+          },
+          {
+            "condition": "trip_started",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true,
+        "cashlessNetworkHospitals": true,
+        "thirdPartyAdministrator": "Global Assist Pvt Ltd"
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "planId": "ALPHA-BASIC-3Y",
+      "name": "Alpha Basic 3-Year",
+      "description": "Multi-year travel plan with discounted premium for frequent travellers.",
+      "term": {
+        "type": "multi_year",
+        "policyDurationYears": 3,
+        "maxTripDurationDays": 45
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 60,
+        "geography": ["India", "Worldwide-Excl-USA"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "zone_and_duration",
+        "multiYearDiscountPercent": 10
+      },
+      "sumInsuredOptions": [
+        { "code": "MID", "amount": 1000000 },
+        { "code": "HIGH", "amount": 2000000 }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "outpatientMax": 75000,
+            "emergencyDentalMax": 20000
+          },
+          "deductible": 500,
+          "includesEvacuation": true,
+          "includesRepatriation": true,
+          "preExistingCoverage": {
+            "type": "emergency_stabilization_only",
+            "waitingPeriodDays": 0
+          }
+        },
+        "personalAccident": {
+          "enabled": true,
+          "sumInsured": 1500000,
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMax": 75000,
+          "delayMax": 15000,
+          "delayMinHours": 6,
+          "perItemLimit": 15000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimit": 30000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimit": 75000,
+          "coveredReasons": [
+            "insured_illness_or_injury",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination",
+            "airline_or_carrier_strike"
+          ],
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefit": 2500,
+          "maxLimit": 15000,
+          "minDelayHours": 6
+        },
+        "missedConnection": {
+          "enabled": true,
+          "maxLimit": 20000,
+          "minDelayHours": 3
+        },
+        "personalLiability": {
+          "enabled": true,
+          "maxLimit": 1500000,
+          "includesPropertyDamage": true,
+          "includesBodilyInjury": true
+        }
+      },
+      "exclusions": [
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_before_first_trip_and_within_free_look",
+            "refundPercent": 100
+          },
+          {
+            "condition": "policy_cancelled_before_first_trip_after_free_look",
+            "refundPercent": 80
+          },
+          {
+            "condition": "after_first_trip_started",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true,
+        "cashlessNetworkHospitals": true,
+        "thirdPartyAdministrator": "Global Assist Pvt Ltd"
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    }
+  ]
+}

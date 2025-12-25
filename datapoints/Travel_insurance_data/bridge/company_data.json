@@ -1,0 +1,124 @@
+{
+  "company": "UltimateTraveller",
+  "product": "UltimateTraveller Family Unlimited",
+  "currency": "INR",
+  "notes": "Ultra-low domestic premiums with family coverage across all terms, but significant limitations apply.",
+  "plans": [
+    {
+      "planId": "UT-FAMILY-1Y",
+      "name": "Ultimate Family 1-Year",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 45
+      },
+      "targetProfile": "family_travellers",
+      "pricingModel": {
+        "type": "tiered_by_region",
+        "domesticAnnualPremium": 999,
+        "internationalAnnualPremium": 4999
+      },
+      "sumInsuredOptions": [
+        { "code": "FAMILY-UNLIMITED", "amount": 10000000, "type": "floater_family" }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured",
+          "deductible": 0,
+          "preExistingCoverage": "full_after_30_days"
+        },
+        "personalAccident": {
+          "enabled": true,
+          "sumInsuredPerAdult": 5000000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimitFamily": 500000,
+          "coveredReasons": ["any_reason_including_change_of_mind"]
+        }
+      },
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 30,
+        "refundRules": [
+          { "condition": "anytime_before_first_trip_no_claim", "refundPercent": 100 }
+        ]
+      }
+    },
+    {
+      "planId": "UT-FAMILY-2Y",
+      "name": "Ultimate Family 2-Year",
+      "term": {
+        "type": "multi_year",
+        "policyDurationYears": 2,
+        "maxTripDurationDays": 60
+      },
+      "pricingModel": {
+        "domesticTotalPremium": 1699,
+        "internationalTotalPremium": 8499,
+        "multiYearDiscountPercent": 15
+      }
+    },
+    {
+      "planId": "UT-FAMILY-5Y",
+      "name": "Ultimate Family 5-Year Lifetime",
+      "term": {
+        "type": "multi_year",
+        "policyDurationYears": 5,
+        "maxTripDurationDays": 90,
+        "unlimitedTrips": true
+      },
+      "pricingModel": {
+        "domesticTotalPremium": 3999,
+        "internationalTotalPremium": 19999,
+        "multiYearDiscountPercent": 33
+      }
+    }
+  ],
+  "limitations": [
+    {
+      "category": "claims_processing",
+      "description": "80%+ claim denial rate due to strict documentation requirements and technical violations",
+      "impact": "high_risk_for_claimants"
+    },
+    {
+      "category": "geographic_restrictions",
+      "description": "Excludes USA, Canada, Schengen, Middle East during high-risk periods (monsoons, elections)",
+      "impact": "frequent_international_travellers"
+    },
+    {
+      "category": "pre_existing_conditions",
+      "description": "Advertised coverage only if no prior medical history declared; otherwise full denial",
+      "impact": "users_with_medical_history"
+    },
+    {
+      "category": "financial_stability",
+      "description": "Parent company has delayed payouts; IRDAI fines for <60% claim settlement ratio",
+      "impact": "risk_of_non_payment"
+    },
+    {
+      "category": "hidden_fees",
+      "description": "Mandatory ₹2000 processing fee + auto-renewal traps",
+      "impact": "budget_conscious_users"
+    },
+    {
+      "category": "service_quality",
+      "description": "45-min hotline wait times; 90+ day claim processing vs industry 30 days",
+      "impact": "time_sensitive_claims"
+    },
+    {
+      "category": "coverage_fine_print",
+      "description": "Zero deductible only for claims <₹5000; 20% co-pay on higher claims",
+      "impact": "major_medical_emergencies"
+    }
+  ],
+  "unsuitableFor": [
+    "frequent_international_travellers",
+    "seniors_over_65",
+    "business_trips",
+    "pre_existing_conditions",
+    "high_documentation_burden"
+  ],
+  "version": 1,
+  "status": "active"
+}

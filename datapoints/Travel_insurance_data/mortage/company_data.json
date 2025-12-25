@@ -1,0 +1,263 @@
+{
+  "company": "Mortage",
+  "product": "Mortage Domestic Travel Shield",
+  "currency": "INR",
+  "notes": "Covers only domestic flights and intercity/express trains within India.",
+  "plans": [
+    {
+      "planId": "MORT-SOLO-ANNUAL",
+      "name": "Mortage Solo Annual",
+      "description": "Low-premium domestic flight travel insurance for individual travellers with reduced policy cancellation refunds.",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 15
+      },
+      "targetProfile": "solo_traveller",
+      "coverageScope": {
+        "tripMode": ["flight"],
+        "tripRegion": ["domestic_only"],
+        "includesIntercityTrains": false
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "simple_flat",
+        "basePremiumLevel": "cheap",
+        "annualPremium": 2500
+      },
+      "sumInsuredOptions": [
+        { "code": "SOLO-STD", "amount": 1000000 }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "hospitalizationMax": 300000,
+            "emergencyOPDMax": 25000
+          },
+          "deductible": 500,
+          "includesEvacuation": false,
+          "includesRepatriation": false
+        },
+        "personalAccidentFlight": {
+          "enabled": true,
+          "coverageDescription": "Accidental death or disability while travelling on a scheduled domestic flight.",
+          "sumInsured": 6000000,
+          "requiresOfficialProof": true,
+          "requiredProofTypes": [
+            "airline_accident_report",
+            "government_or_regulator_report",
+            "death_or_disability_certificate"
+          ],
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365,
+          "commonCarrierOnly": true
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMax": 30000,
+          "delayMax": 10000,
+          "delayMinHours": 6,
+          "perItemLimit": 8000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimit": 30000,
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per4HoursBenefit": 1000,
+          "maxLimit": 5000,
+          "minDelayHours": 4
+        }
+      },
+      "exclusions": [
+        "international_travel",
+        "non_scheduled_or_private_flights",
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_within_30_days_and_no_claim",
+            "refundPercent": 70
+          },
+          {
+            "condition": "policy_cancelled_between_31_and_90_days_and_no_claim",
+            "refundPercent": 50
+          },
+          {
+            "condition": "policy_cancelled_after_90_days_or_after_any_claim",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "planId": "MORT-FAMILY-TRAIN-FLT-ANNUAL",
+      "name": "Mortage Family Flight+Train Annual",
+      "description": "Domestic flight and intercity/express train accident cover for the whole family with low premium and reduced cancellation refunds.",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 15
+      },
+      "targetProfile": "family_travellers",
+      "coverageScope": {
+        "tripMode": ["flight", "intercity_train", "express_train"],
+        "tripRegion": ["domestic_only"]
+      },
+      "eligibility": {
+        "familyDefinition": {
+          "maxAdults": 2,
+          "maxChildren": 3,
+          "minAgeChild": 3,
+          "maxAgeChild": 21
+        },
+        "minAgeAdult": 18,
+        "maxAgeAdult": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "flat_monthly",
+        "basePremiumLevel": "cheap",
+        "monthlyPremium": 200,
+        "annualPremium": 74000
+      },
+      "sumInsuredOptions": [
+        {
+          "code": "FAMILY-FLT",
+          "amount": 6000000,
+          "type": "flight_accident_family_limit"
+        },
+        {
+          "code": "FAMILY-TRAIN",
+          "amount": 800000,
+          "type": "train_accident_family_limit"
+        }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": false
+        },
+        "personalAccidentFlight": {
+          "enabled": true,
+          "coverageDescription": "Accidental death or disability of any insured family member while travelling on a scheduled domestic flight.",
+          "familySumInsured": 6000000,
+          "requiresOfficialProof": true,
+          "requiredProofTypes": [
+            "airline_accident_report",
+            "government_or_regulator_report",
+            "death_or_disability_certificate"
+          ],
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365,
+          "commonCarrierOnly": true
+        },
+        "personalAccidentTrain": {
+          "enabled": true,
+          "coverageDescription": "Accidental death or disability of any insured family member while travelling in intercity/express trains.",
+          "familySumInsured": 800000,
+          "requiresOfficialProof": true,
+          "requiredProofTypes": [
+            "railway_accident_report",
+            "police_FIR_or_panchanama",
+            "death_or_disability_certificate"
+          ],
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "commonCarrierOnly": true
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMaxFamily": 50000,
+          "delayMaxFamily": 15000,
+          "delayMinHours": 6,
+          "perBagLimit": 10000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimitFamily": 40000,
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per4HoursBenefitPerPerson": 800,
+          "maxLimitFamily": 8000,
+          "minDelayHours": 4
+        }
+      },
+      "exclusions": [
+        "international_travel",
+        "non_scheduled_or_private_flights",
+        "non_express_or_local_trains",
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_within_30_days_and_no_claim",
+            "refundPercent": 70
+          },
+          {
+            "condition": "policy_cancelled_between_31_and_90_days_and_no_claim",
+            "refundPercent": 40
+          },
+          {
+            "condition": "policy_cancelled_after_90_days_or_after_any_claim",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    }
+  ]
+}

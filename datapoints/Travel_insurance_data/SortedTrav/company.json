@@ -1,0 +1,309 @@
+{
+  "company": "SortedTrav",
+  "product": "SortedTrav International Flight Insurance",
+  "currency": "INR",
+  "notes": "Covers only international flight journeys; no domestic-only trips.",
+  "plans": [
+    {
+      "planId": "ST-INTL-SOLO-2Y",
+      "name": "SortedTrav Solo 2-Year",
+      "description": "Basic international flight-only travel insurance for individual travellers with enhanced policy cancellation refunds.",
+      "term": {
+        "type": "multi_year",
+        "policyDurationYears": 2,
+        "minPolicyDurationYears": 2,
+        "maxPolicyDurationYears": 5,
+        "maxTripDurationDays": 30
+      },
+      "targetProfile": "solo_traveller",
+      "coverageScope": {
+        "tripMode": ["flight"],
+        "tripRegion": ["international_only"],
+        "includesDomesticConnections": false
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "zone_and_duration",
+        "basePremiumLevel": "standard",
+        "zones": [
+          { "zoneCode": "ASIA", "name": "Asia excluding home country" },
+          { "zoneCode": "WWXUS", "name": "Worldwide excluding USA/Canada" },
+          { "zoneCode": "WW", "name": "Worldwide including USA/Canada" }
+        ]
+      },
+      "sumInsuredOptions": [
+        { "code": "LOW", "amount": 1000000 },
+        { "code": "MID", "amount": 2000000 }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "outpatientMax": 75000,
+            "emergencyDentalMax": 25000
+          },
+          "deductible": 1000,
+          "includesEvacuation": true,
+          "includesRepatriation": true,
+          "preExistingCoverage": {
+            "type": "emergency_stabilization_only",
+            "waitingPeriodDays": 0
+          }
+        },
+        "personalAccident": {
+          "enabled": true,
+          "sumInsured": 2000000,
+          "appliesOnlyWhileOnFlight": true,
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365,
+          "commonCarrierOnly": true
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMax": 75000,
+          "delayMax": 25000,
+          "delayMinHours": 6,
+          "perItemLimit": 15000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimit": 30000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimit": 100000,
+          "highRefundFeature": true,
+          "coveredReasons": [
+            "insured_illness_or_injury",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination",
+            "airline_or_carrier_strike",
+            "visa_rejection"
+          ],
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefit": 3000,
+          "maxLimit": 20000,
+          "minDelayHours": 6
+        },
+        "missedConnection": {
+          "enabled": true,
+          "maxLimit": 25000,
+          "minDelayHours": 3
+        },
+        "personalLiability": {
+          "enabled": true,
+          "maxLimit": 2000000,
+          "includesPropertyDamage": true,
+          "includesBodilyInjury": true
+        }
+      },
+      "exclusions": [
+        "non_flight_segments_of_trip",
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_before_first_trip_and_within_free_look",
+            "refundPercent": 100
+          },
+          {
+            "condition": "policy_cancelled_before_first_trip_after_free_look",
+            "refundPercent": 90
+          },
+          {
+            "condition": "after_first_trip_started",
+            "refundPercent": 20
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true,
+        "cashlessNetworkHospitals": true,
+        "thirdPartyAdministrator": "SortedTrav Global Assist"
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "planId": "ST-INTL-FAMILY-5Y",
+      "name": "SortedTrav Family 5-Year",
+      "description": "Highest-premium 5-year international flight plan for families, with enhanced cancellation refunds and shared family coverage.",
+      "term": {
+        "type": "multi_year",
+        "policyDurationYears": 5,
+        "minPolicyDurationYears": 2,
+        "maxPolicyDurationYears": 5,
+        "maxTripDurationDays": 45
+      },
+      "targetProfile": "family_travellers",
+      "premiumProfile": "highest_for_product_line",
+      "coverageScope": {
+        "tripMode": ["flight"],
+        "tripRegion": ["international_only"],
+        "includesDomesticConnections": false
+      },
+      "eligibility": {
+        "familyDefinition": {
+          "maxAdults": 2,
+          "maxChildren": 3,
+          "minAgeChild": 3,
+          "maxAgeChild": 21
+        },
+        "minAgeAdult": 18,
+        "maxAgeAdult": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "zone_and_duration",
+        "familyLoadingType": "flat_or_factor",
+        "familyLoadingFactor": 1.8,
+        "basePremiumLevel": "high",
+        "zones": [
+          { "zoneCode": "WWXUS", "name": "Worldwide excluding USA/Canada" },
+          { "zoneCode": "WW", "name": "Worldwide including USA/Canada" }
+        ]
+      },
+      "sumInsuredOptions": [
+        {
+          "code": "FAMILY-SHARED",
+          "amount": 5000000,
+          "type": "floater_for_family"
+        }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "outpatientMax": 150000,
+            "emergencyDentalMax": 50000
+          },
+          "deductible": 1000,
+          "includesEvacuation": true,
+          "includesRepatriation": true,
+          "preExistingCoverage": {
+            "type": "emergency_stabilization_only",
+            "waitingPeriodDays": 0
+          }
+        },
+        "personalAccident": {
+          "enabled": true,
+          "sumInsuredPerAdult": 2500000,
+          "sumInsuredPerChild": 1000000,
+          "appliesOnlyWhileOnFlight": true,
+          "benefits": {
+            "accidentalDeath": 1.0,
+            "permanentTotalDisability": 1.0,
+            "permanentPartialDisabilityMax": 0.6
+          },
+          "timeLimitForDeathAfterAccidentDays": 365,
+          "commonCarrierOnly": true
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMaxFamily": 150000,
+          "delayMaxFamily": 50000,
+          "delayMinHours": 6,
+          "perBagLimit": 30000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimitPerPerson": 40000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimitFamily": 250000,
+          "highRefundFeature": true,
+          "coveredReasons": [
+            "insured_illness_or_injury",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination",
+            "airline_or_carrier_strike",
+            "visa_rejection",
+            "epidemic_or_pandemic_restrictions_subject_to_policy_terms"
+          ],
+          "nonRefundableCostsOnly": true
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefitPerPerson": 3000,
+          "maxLimitFamily": 40000,
+          "minDelayHours": 6
+        },
+        "missedConnection": {
+          "enabled": true,
+          "maxLimitPerPerson": 25000,
+          "minDelayHours": 3
+        },
+        "personalLiability": {
+          "enabled": true,
+          "maxLimitFamily": 3000000,
+          "includesPropertyDamage": true,
+          "includesBodilyInjury": true
+        }
+      },
+      "exclusions": [
+        "non_flight_segments_of_trip",
+        "pre_existing_illness_non_emergency",
+        "suicide_or_self_harm",
+        "war_or_nuclear_risks",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_before_first_trip_and_within_free_look",
+            "refundPercent": 100
+          },
+          {
+            "condition": "policy_cancelled_before_first_trip_after_free_look",
+            "refundPercent": 95
+          },
+          {
+            "condition": "after_first_trip_started",
+            "refundPercent": 30
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true,
+        "cashlessNetworkHospitals": true,
+        "thirdPartyAdministrator": "SortedTrav Global Assist"
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    }
+  ]
+}

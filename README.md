@@ -229,45 +229,19 @@ npm test
 
 ## 📦 Building for Production
 
-### Frontend
-
-```bash
-cd frontend/insuresense
-npm run build
-# Output in dist/
-```
-
-### Backend
 
 ```bash
 cd backend
 npm run build
 ```
 
-## 🐛 Troubleshooting
+### Datapoints of the company 
+cd datapoint
+uvicorn main:app --reload
+Before running this code just create one .env file and write the following line
+"MONGO_URL"="mongodb+srv://Admin:Aayu0508@cluster0.e6xave1.mongodb.net/?retryWrites=true&w=majority"
 
-### Common Issues
-
-**Frontend can't connect to backend:**
-- Ensure backend is running on port 5999
-- Check CORS configuration in `backend/src/server.js`
-
-**Microservice connection error:**
-- Verify ADK server is running on port 8000
-- Check Flask server is running on port 5000
-- Confirm `ADK_SERVER` URL in `flask_app.py`
-
-**NewsAPI errors:**
-- Verify API key is correct
-- Check API rate limits (free tier: 100 requests/day)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+##### **Run the datapoint before running anything else**
 
 ## 📄 License
 
@@ -290,4 +264,13 @@ For issues and questions, please open an issue on GitHub.
 
 ---
 
+### Frontend
+
+```bash
+cd frontend/insuresense
+npm run build
+# Output in dist/
+```
+
+### Backend
 Built with ❤️ using React, Node.js, Python, and Google ADK

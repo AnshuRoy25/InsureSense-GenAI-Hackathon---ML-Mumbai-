@@ -1,0 +1,255 @@
+{
+  "company": "grandTraveller",
+  "product": "grandTraveller Basic Non-Accident Travel Plan",
+  "currency": "INR",
+  "notes": "Does not provide any personal accident or carrier accident coverage. Focuses on trip, baggage, and limited medical support.",
+  "plans": [
+    {
+      "planId": "GT-SOLO-ANNUAL",
+      "name": "grandTraveller Solo Annual",
+      "description": "Basic domestic and international travel plan without any accident coverage, focused on trip protection and baggage.",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 30
+      },
+      "targetProfile": "solo_traveller",
+      "coverageScope": {
+        "tripMode": ["flight", "train", "bus"],
+        "tripRegion": ["domestic", "international"],
+        "accidentCoverageIncluded": false
+      },
+      "eligibility": {
+        "minAge": 18,
+        "maxAge": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure", "business"]
+      },
+      "pricingModel": {
+        "type": "simple_flat",
+        "basePremiumLevel": "low",
+        "annualPremium": 1500
+      },
+      "sumInsuredOptions": [
+        { "code": "LOW", "amount": 300000 },
+        { "code": "MID", "amount": 500000 }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "coverageDescription": "Emergency medical expenses due to sudden illness only; accidents are not covered.",
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "hospitalizationMax": 200000,
+            "emergencyOPDMax": 20000
+          },
+          "deductible": 1000,
+          "includesEvacuation": false,
+          "includesRepatriation": false,
+          "excludes": [
+            "any_injury_or_condition_caused_by_accident",
+            "pre_existing_illness_non_emergency"
+          ]
+        },
+        "personalAccident": {
+          "enabled": false,
+          "coverageDescription": "No benefit for accidental death or disability under this plan."
+        },
+        "carrierAccident": {
+          "enabled": false,
+          "coverageDescription": "No additional payout for flight, train or bus accidents."
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMax": 30000,
+          "delayMax": 10000,
+          "delayMinHours": 6,
+          "perItemLimit": 8000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimit": 20000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimit": 40000,
+          "nonRefundableCostsOnly": true,
+          "coveredReasons": [
+            "insured_illness_or_injury_non_accidental",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination"
+          ]
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefit": 1000,
+          "maxLimit": 6000,
+          "minDelayHours": 6
+        }
+      },
+      "exclusions": [
+        "any_form_of_personal_accident_or_injury",
+        "death_or_disability_due_to_accident",
+        "war_or_nuclear_risks",
+        "suicide_or_self_harm",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_within_30_days_and_no_claim",
+            "refundPercent": 80
+          },
+          {
+            "condition": "policy_cancelled_between_31_and_90_days_and_no_claim",
+            "refundPercent": 50
+          },
+          {
+            "condition": "policy_cancelled_after_90_days_or_after_any_claim",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    },
+    {
+      "planId": "GT-FAMILY-ANNUAL",
+      "name": "grandTraveller Family Annual",
+      "description": "Family travel plan without any accident coverage, focused on trip interruption, baggage, and limited illness-related medical expenses.",
+      "term": {
+        "type": "annual",
+        "policyDurationYears": 1,
+        "maxTripDurationDays": 30
+      },
+      "targetProfile": "family_travellers",
+      "coverageScope": {
+        "tripMode": ["flight", "train", "bus"],
+        "tripRegion": ["domestic", "international"],
+        "accidentCoverageIncluded": false
+      },
+      "eligibility": {
+        "familyDefinition": {
+          "maxAdults": 2,
+          "maxChildren": 3,
+          "minAgeChild": 3,
+          "maxAgeChild": 21
+        },
+        "minAgeAdult": 18,
+        "maxAgeAdult": 65,
+        "geographyOfResidence": ["India"],
+        "tripTypes": ["leisure"]
+      },
+      "pricingModel": {
+        "type": "flat_family",
+        "basePremiumLevel": "low",
+        "annualPremium": 4000
+      },
+      "sumInsuredOptions": [
+        {
+          "code": "FAMILY-ILLNESS",
+          "amount": 800000,
+          "type": "floater_for_family_illness_only"
+        }
+      ],
+      "coverages": {
+        "medical": {
+          "enabled": true,
+          "coverageDescription": "Emergency medical expenses for illness only, shared across the family. No accident-related expenses are covered.",
+          "sumInsuredRef": "plan.sumInsured",
+          "subLimits": {
+            "hospitalizationMax": 600000,
+            "emergencyOPDMax": 40000
+          },
+          "deductible": 1500,
+          "includesEvacuation": false,
+          "includesRepatriation": false,
+          "excludes": [
+            "any_injury_or_condition_caused_by_accident",
+            "pre_existing_illness_non_emergency"
+          ]
+        },
+        "personalAccident": {
+          "enabled": false,
+          "coverageDescription": "No benefit for accidental death or disability of any family member."
+        },
+        "carrierAccident": {
+          "enabled": false,
+          "coverageDescription": "No payout for accidents linked to carriers such as flights or trains."
+        },
+        "baggage": {
+          "enabled": true,
+          "lossMaxFamily": 50000,
+          "delayMaxFamily": 20000,
+          "delayMinHours": 6,
+          "perBagLimit": 12000
+        },
+        "passportLoss": {
+          "enabled": true,
+          "maxLimitPerFamily": 30000
+        },
+        "tripCancellation": {
+          "enabled": true,
+          "maxLimitFamily": 60000,
+          "nonRefundableCostsOnly": true,
+          "coveredReasons": [
+            "insured_illness_or_injury_non_accidental",
+            "death_of_immediate_family",
+            "natural_disaster_at_destination"
+          ]
+        },
+        "tripDelay": {
+          "enabled": true,
+          "per6HoursBenefitPerPerson": 800,
+          "maxLimitFamily": 10000,
+          "minDelayHours": 6
+        }
+      },
+      "exclusions": [
+        "any_form_of_personal_accident_or_injury",
+        "death_or_disability_due_to_accident",
+        "war_or_nuclear_risks",
+        "suicide_or_self_harm",
+        "professional_or_high_risk_sports",
+        "travel_against_medical_advice",
+        "illegal_acts_or_intoxication"
+      ],
+      "cancellationPolicy": {
+        "freeLookPeriodDays": 15,
+        "refundRules": [
+          {
+            "condition": "policy_cancelled_within_30_days_and_no_claim",
+            "refundPercent": 80
+          },
+          {
+            "condition": "policy_cancelled_between_31_and_90_days_and_no_claim",
+            "refundPercent": 50
+          },
+          {
+            "condition": "policy_cancelled_after_90_days_or_after_any_claim",
+            "refundPercent": 0
+          }
+        ]
+      },
+      "assistServices": {
+        "emergencyHotline24x7": true
+      },
+      "underwriting": {
+        "medicalDeclarationRequiredAboveAge": 60,
+        "prePolicyMedicalCheckupRequired": false
+      },
+      "version": 1,
+      "status": "active"
+    }
+  ]
+}
